@@ -2,9 +2,9 @@ resource "openstack_networking_floatingip_v2" "myip" {
   pool = "${var.public_network_name}"
 }
 
-data "template_file" "user_data" {
-  template = file("${path.module}/templates/conf_data.yaml")
-}
+//data "template_file" "user_data" {
+  //template = file("${path.module}/templates/conf_data.yaml")
+//}
 
 resource "openstack_compute_keypair_v2" "demo_keypair" {
   name       = "${var.openstack_key}"
@@ -24,7 +24,7 @@ resource "openstack_compute_instance_v2" "agw_deployment"{
   image_id        = "${var.image_id}"
   flavor_id       = "${var.flavor_id}"
   key_pair        = openstack_compute_keypair_v2.demo_keypair.name
-  user_data       = data.template_file.user_data.rendered
+  //user_data       = data.template_file.user_data.rendered
 network {
     port = "${openstack_networking_port_v2.ports.*.id[0]}"
   }

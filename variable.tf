@@ -1,25 +1,11 @@
 # names
 variable "project-name" {
-  default = "jacobbaek"
+  default = "admin"
 }
 
-variable "ceph-names" {
-  type = list(string)
-  default = ["ceph001", "ceph002", "ceph003"]
-}
-
-variable "controller-names" {
-  type = list(string)
-  default = ["ctrl001"]
-}
-
-variable "compute-names" {
-  type = list(string)
-  default = ["com001"]
-}
 # 
 variable "image-name" {
-  default = "image FIXME"
+  default = "2e6a0ef7-f28e-4213-ae93-3deb602c3d87"
 }
 
 variable "flavor-name" {
@@ -29,19 +15,7 @@ variable "flavor-name" {
 # networks
 # the below variable have to defined that is provider network.
 variable "deploy-addr" {
-  default = "11.11.11"
-}
-
-variable "internal-addr" {
-  default = "22.22.22"
-}
-
-variable "storage-addr" {
-  default = "33.33.33"
-}
-
-variable "monitor-addr" {
-  default = "44.44.44"
+  default = "172.16.5.4"
 }
 
 # should check the external's network uuid that will use at the vrouter.

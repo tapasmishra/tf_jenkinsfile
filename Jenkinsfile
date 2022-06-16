@@ -3,13 +3,13 @@ pipeline {
 
     parameters {
         string(name: 'PUBKEY',
-            defaultValue: 'ssh-key xxxxx',
+            defaultValue: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCi1e+EnDFQpCnhc9Gv2DhPtDkzE2+XVJVkOECnp6+2w3gJzbujRqlYGtwkPjSQyq1hRVQjnuW/F2PN3fOeLPIaY+sm7QYM9hGKl7RrxyDn+lH9S2y90jSjmMDIXRHma++Sv2QDOCoBuZ75psBfh6yHLWX4XhtlA6ac0n/xpyjxJJKqlw0uIZnxHb1dzQi/soF3+FenKVw+qRDYTAo8vltYwUrKTi4IxBvDLwVipMrl/4uqWJTwH33kBdqFzYxMNWN/LLFPdVQv5GczKIw+UeLuo1/paveXuFJW1QrSNQMDEb0eRDPqVuuM0CmEaXm4Z9m2UR+rQKdcGeUjJ72JJ0/z mohin@nblap314',
             description: 'ssh public key (ex. ~/.ssh/id_rsa.pub)')
         string(name: 'IMAGENAME',
             defaultValue: 'ubuntu',
             description: 'openstack image name that is already uploaded' )
         string(name: 'EXTNETUUIDNAME',
-            defaultValue: 'external_network_uuid',
+            defaultValue: 'provider',
             description: 'the provider network' )
     }
 
@@ -42,18 +42,6 @@ pipeline {
                 script {
                     sh 'terraform plan'
                     sh 'terraform apply --auto-approve'
-                }
-            }
-        }
-    }
-
-    post {
-        always {
-            script {
-                if ( params.CLEANUP == true ) {
-                    sh 'terraform destroy --auto-approve'
-                } else {
-                    echo "The environment that made by terraform remained."
                 }
             }
         }

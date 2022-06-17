@@ -19,7 +19,7 @@ pipeline {
                 script {
                     sh "echo ${params.PUBKEY} > pubkey"
                     sh "sed -i 's/image\\ FIXME/${params.IMAGENAME}/' variables.tf"
-                    sh "sed -i 's/external-network-uuid\\ FIXME/${params.EXTNETUUIDNAME}/' variables.tf"
+                    sh "sed -i 's/external-network-uuid\\ FIXME/${params.EXTNETUUIDNAME}/' variable.tf"
                 }
             }
         }

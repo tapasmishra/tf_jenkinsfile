@@ -18,8 +18,8 @@ pipeline {
             steps {
                 script {
                     sh "echo ${params.PUBKEY} > pubkey"
-                    sh "sed -i 's/image\\ FIXME/${params.IMAGENAME}/' variable.tf"
-                    sh "sed -i 's/provider\\ FIXME/${params.EXTNETUUIDNAME}/' variable.tf"
+                    sh "sed -i 's/image/${params.IMAGENAME}/' variable.tf"
+                    sh "sed -i 's/external-network-uuid/${params.EXTNETUUIDNAME}/' variable.tf"
                 }
             }
         }

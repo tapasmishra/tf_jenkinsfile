@@ -1,6 +1,6 @@
-resource "openstack_networking_floatingip_v2" "myip" {
-  pool = "${var.public_network_name}"
-}
+//resource "openstack_networking_floatingip_v2" "myip" {
+  //pool = "${var.public_network_name}"
+//}
 
 //data "template_file" "user_data" {
   //template = file("${path.module}/templates/conf_data.yaml")
@@ -14,7 +14,7 @@ resource "openstack_compute_keypair_v2" "demo_keypair" {
 resource "openstack_networking_port_v2" "ports" {
   count          = 1 
   name           = "${format("port-%02d", count.index + 1)}"
-  network_id     = "${var.private_network_id}"
+  network_id     = "${var.public_network_id}"
   admin_state_up = "true"
   port_security_enabled = "false"
 }
@@ -31,8 +31,8 @@ network {
 }
 
 
-resource "openstack_networking_floatingip_associate_v2" "myip" {
-  floating_ip = "${openstack_networking_floatingip_v2.myip.address}"
-  port_id = "${openstack_networking_port_v2.ports.*.id[0]}"
-}
+//resource "openstack_networking_floatingip_associate_v2" "myip" {
+  //floating_ip = "${openstack_networking_floatingip_v2.myip.address}"
+  //port_id = "${openstack_networking_port_v2.ports.*.id[0]}"
+//}
 

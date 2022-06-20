@@ -9,4 +9,4 @@ public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCi1e+EnDFQpCnhc9Gv2DhPtDkzE2
 flavor_id = "5e7a1842-e875-4c39-ab49-938280c7b094"
 private_network_id = "35db3775-3c0d-4f5d-9e45-7b7d805f39e9"
 public_network_name = "50a1fd79-bcf3-456d-91b9-5b169fe068e2"
-image_id = "2e6a0ef7-f28e-4213-ae93-3deb602c3d87"
+image_name= "2e6a0ef7-f28e-4213-ae93-3deb602c3d87"

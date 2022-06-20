@@ -14,7 +14,7 @@ resource "openstack_compute_keypair_v2" "demo_keypair" {
 resource "openstack_networking_port_v2" "ports" {
   count          = 1 
   name           = "${format("port-%02d", count.index + 1)}"
-  network_id     = "${var.public_network_id}"
+  network_id     = "${var.private_network_id}"
   admin_state_up = "true"
   port_security_enabled = "false"
 }

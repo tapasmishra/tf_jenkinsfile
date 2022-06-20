@@ -32,7 +32,7 @@ network {
 
 resource "openstack_compute_interface_attach_v2" "attachments" {
   instance_id = "${openstack_compute_instance_v2.agw_deployment.id}"
-  port_id     = "${openstack_networking_port_v2.ports.*.id[1]}"
+  port_id     = "${openstack_networking_port_v2.ports.*.id[0]}"
 }
 
 //resource "openstack_networking_floatingip_associate_v2" "myip" {

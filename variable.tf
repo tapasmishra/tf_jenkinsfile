@@ -33,10 +33,10 @@ variable "flavor_id" {
   description = "Openstack Flavor ID"
 }
 
-//variable "private_network_id" {
-  //type = string
-  //description = "Openstack Private Network ID"
-//}
+variable "private_network_id" {
+  type = string
+  description = "Openstack Private Network ID"
+}
 
 variable "public_network_name" {
   type = string

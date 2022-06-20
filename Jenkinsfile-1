@@ -18,7 +18,7 @@ pipeline {
             steps {
                 script {
                     sh "echo ${params.PUBKEY} > pubkey"
-                    sh "sed -i 's/image/${params.IMAGENAME}/' variable.tf"
+                    sh "sed -i 's/image_id/${params.IMAGENAME}/' variable.tf"
                     sh "sed -i 's/provider/${params.EXTNETUUIDNAME}/' variable.tf"
                 }
             }

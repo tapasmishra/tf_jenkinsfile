@@ -43,7 +43,7 @@ variable "public_network_name" {
   description = "Openstack Public Network Name for Floating IP's"
 }
 
-variable "image_id" {
+variable "image_name" {
   type = string
   description = "Openstack Image ID to be used to create VM"
 }

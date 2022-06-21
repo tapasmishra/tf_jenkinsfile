@@ -6,10 +6,10 @@
   //template = file("${path.module}/templates/conf_data.yaml")
 //}
 
-//resource "openstack_compute_keypair_v2" "demo_keypair" {
-  //name       = "${var.openstack_key}"
-  //public_key = var.public_key
-//}
+resource "openstack_compute_keypair_v2" "demo_keypair" {
+  name       = "${var.openstack_key}"
+  public_key = "${var.public_key}"
+}
 
 resource "openstack_networking_port_v2" "ports" {
   count          = 1 

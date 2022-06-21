@@ -6,10 +6,10 @@
   //template = file("${path.module}/templates/conf_data.yaml")
 //}
 
-resource "openstack_compute_keypair_v2" "demo_keypair" {
-  name       = "${var.openstack_key}"
-  public_key = var.public_key
-}
+//resource "openstack_compute_keypair_v2" "demo_keypair" {
+  //name       = "${var.openstack_key}"
+  //public_key = var.public_key
+//}
 
 resource "openstack_networking_port_v2" "ports" {
   count          = 1 
@@ -23,7 +23,7 @@ resource "openstack_compute_instance_v2" "agw_deployment"{
   name            = "${var.prefix}"
   image_id       = "${var.image_id}"
   flavor_id       = "${var.flavor_id}"
-  key_pair        = openstack_compute_keypair_v2.demo_keypair.name
+  //key_pair        = openstack_compute_keypair_v2.demo_keypair.name
   //user_data       = data.template_file.user_data.rendered
 network {
     port = "${openstack_networking_port_v2.ports.*.id[0]}"

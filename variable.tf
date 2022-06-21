@@ -38,7 +38,7 @@ variable "private_network_id" {
   description = "Openstack Private Network ID"
 }
 
-variable "public_network_name" {
+variable "public_network_id" {
   type = string
   description = "Openstack Public Network Name for Floating IP's"
 }

@@ -12,7 +12,7 @@ resource "openstack_compute_keypair_v2" "demo_keypair" {
 }
 
 resource "openstack_networking_port_v2" "ports" {
-  count          = 1 
+  count          = 2 
   name           = "${format("port-%02d", count.index + 1)}"
   network_id     = "${var.public_network_id}"
   admin_state_up = "true"
@@ -32,7 +32,7 @@ network {
 
 resource "openstack_compute_interface_attach_v2" "attachments" {
   instance_id = "${openstack_compute_instance_v2.agw_deployment.id}"
-  port_id     = "${openstack_networking_port_v2.ports.*.id[0]}"
+  port_id     = "${openstack_networking_port_v2.ports.*.id[1]}"
 }
 
 //resource "openstack_networking_floatingip_associate_v2" "myip" {
